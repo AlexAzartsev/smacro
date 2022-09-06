@@ -1,21 +1,18 @@
 {
-  "id": "smacro",
-  "title": "Macro lib",
+  "name": "smacro",
+  "title": "smacro",
   "description": "macro lib",
-  "url": "https://github.com/AlexAzartsev/smacro/tree/main",
+  "version": "0.0.1",
+  "minimumCoreVersion" : "0.7.9",
+  "compatibleCoreVersion" : "9",
+  "library": true,
   "authors": [
     {
-      "name": "Alex Azartsev"
+      "name": "Alex Azartsev",
     }
   ],
-  "version": "0.0.1",
-  "compatibility": {
-    "minimum": "9",
-    "verified": "9"
-  },
-  "scripts": [
-    "scripts/Smacro.js"
-  ],
+  "url": "https://github.com/AlexAzartsev/smacro/tree/main",
+  "download": "https://github.com/AlexAzartsev/smacro/archive/refs/heads/main.zip",
   "manifest": "https://raw.githubusercontent.com/AlexAzartsev/smacro/main/module.json",
-  "download": "https://github.com/AlexAzartsev/smacro/archive/refs/heads/main.zip"
+  "allowBugReporter": false
 }
