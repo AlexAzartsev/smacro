@@ -2,7 +2,6 @@
   "id": "smacro",
   "title": "Macro lib",
   "description": "macro lib",
-  "url": "https://github.com/AlexAzartsev/smacro/tree/main",
   "authors": [
     {
       "name": "Alex Azartsev"
@@ -12,9 +11,5 @@
   "compatibility": {
     "minimum": "9",
     "verified": "9"
-  },
-  "scripts": [
-    "scripts/Smacro.js"
-  ],
-  "manifest": "https://raw.githubusercontent.com/AlexAzartsev/smacro/main/module.json"
+  }
 }
