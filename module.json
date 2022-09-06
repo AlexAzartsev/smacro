@@ -1,5 +1,6 @@
 {
   "name": "smacro",
+  "id": "smacro",
   "title": "smacro",
   "description": "macro lib",
   "version": "0.0.1",
