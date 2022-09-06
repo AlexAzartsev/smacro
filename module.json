@@ -1,0 +1,18 @@
+{
+  "id": "smacro",
+  "title": "Macro lib",
+  "description": "macro lib",
+  "authors": [
+    {
+      "name": "Alex Azartsev"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "9",
+    "verified": "9"
+  },
+  "scripts": [
+    "scripts/Smacro.js"
+  ]
+}
