@@ -79,7 +79,7 @@ class Smacro
 
   placeEffectOnTarget(item) {
     const tok = Array.from(game.user.targets)[0];
-    const effect = i.data.img;
+    const effect = item.data.img;
     if (tok !== undefined) {
       tok.toggleEffect(effect);
     }
@@ -87,7 +87,7 @@ class Smacro
 
   placeEffectOnToken(item) {
     const tok = _token;
-    const effect = i.data.img;
+    const effect = item.data.img;
     if (tok !== undefined) {
       tok.toggleEffect(effect);
     }
