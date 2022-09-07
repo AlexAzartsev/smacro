@@ -77,8 +77,7 @@ class Smacro
     return content;
   }
 
-  placeEffectOnTarget() {
-    const i = item;
+  placeEffectOnTarget(item) {
     const tok = Array.from(game.user.targets)[0];
     const effect = i.data.img;
     if (tok !== undefined) {
@@ -86,8 +85,7 @@ class Smacro
     }
   }
 
-  placeEffectOnToken() {
-    const i = item;
+  placeEffectOnToken(item) {
     const tok = _token;
     const effect = i.data.img;
     if (tok !== undefined) {
