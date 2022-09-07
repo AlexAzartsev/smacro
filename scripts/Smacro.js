@@ -99,10 +99,9 @@ class Smacro
 console.log("Smacro loaded");
 
 Hooks.on("init", function () {
-  console.log('smacro should be loaded here')
   window.smacro = new Smacro();
 });
 
 Hooks.on("ready", function () {
-  console.log("This code runs once core initialization is ready and game data is available.");
+
 });
