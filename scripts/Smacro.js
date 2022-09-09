@@ -1,4 +1,6 @@
-class Smacro
+import { MODULE, EVENT_EFFECT } from './config.js';
+
+export class Smacro
 {
   drawTemplatePreview(type, distance) {
     const data = {
@@ -77,29 +79,33 @@ class Smacro
     return content;
   }
 
+  placeEffectOnToken(token, effect) {
+    if (game.user.isGM) {
+      token.toggleEffect(effect);
+    } else {
+      this.emitEffect(token, effect);
+    }
+  }
+
   placeEffectOnTarget(item) {
     const tok = Array.from(game.user.targets)[0];
     const effect = item.data.img;
-    if (tok !== undefined) {
-      tok.toggleEffect(effect);
-    }
+    this.placeEffectOnToken(tok, effect);
   }
 
-  placeEffectOnToken(item) {
+  placeEffectOnCurrentToken(item) {
     const tok = _token;
     const effect = item.data.img;
-    if (tok !== undefined) {
-      tok.toggleEffect(effect);
-    }
+    this.placeEffectOnToken(tok, effect);
+  }
+
+  emitEffect(token, effect) {
+    game.socket.emit(MODULE, {
+      event: EVENT_EFFECT,
+      userId: game.user.id,
+      sceneId: canvas.scene.id,
+      tokenId: token.id,
+      effect,
+    });
   }
 }
-
-console.log("Smacro loaded");
-
-Hooks.on("init", function () {
-  window.smacro = new Smacro();
-});
-
-Hooks.on("ready", function () {
-
-});
