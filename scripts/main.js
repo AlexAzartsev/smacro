@@ -9,10 +9,10 @@ Hooks.on("init", function () {
     console.log(data);
     if (data.event === EVENT_EFFECT) {
       console.log('Effect event');
-      if (canvas.scene.id === data.sceneId) {
+      if (canvas.scene.id === data.sceneId && game.user.isGM) {
         canvas.tokens.placeables.forEach(token => {
           if (token.id === data.tokenId) {
-            smacro.placeEffectOnToken(token, data.effect);
+              token.toggleEffect(data.effect);
           }
         });
       }
