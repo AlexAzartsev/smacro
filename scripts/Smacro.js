@@ -79,33 +79,37 @@ export class Smacro
     return content;
   }
 
-  placeEffectOnToken(token, effect) {
+  placeEffectOnToken(token, effect, callback) {
     if (game.user.isGM) {
       token.toggleEffect(effect);
+      if (typeof callback === 'function') {
+        callback(token, effect);
+      }
     } else {
-      this.emitEffect(token, effect);
+      this.emitEffect(token, effect, callback);
     }
   }
 
-  placeEffectOnTarget(item) {
+  placeEffectOnTarget(item, callback) {
     const tok = Array.from(game.user.targets)[0];
     const effect = item.data.img;
-    this.placeEffectOnToken(tok, effect);
+    this.placeEffectOnToken(tok, effect, callback);
   }
 
-  placeEffectOnCurrentToken(item) {
+  placeEffectOnCurrentToken(item, callback) {
     const tok = _token;
     const effect = item.data.img;
-    this.placeEffectOnToken(tok, effect);
+    this.placeEffectOnToken(tok, effect, callback);
   }
 
-  emitEffect(token, effect) {
+  emitEffect(token, effect, callback) {
     game.socket.emit(MODULE, {
       event: EVENT_EFFECT,
       userId: game.user.id,
       sceneId: canvas.scene.id,
       tokenId: token.id,
       effect,
+      callback: callback ? callback.toString() : null,
     });
   }
 }
